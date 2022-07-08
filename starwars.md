@@ -60,16 +60,53 @@ or remove the `eval` option altogether since it’s set to `TRUE` by
 default.)
 
 ``` r
-ggplot(starwars, aes(___)) +
-  geom___
+ggplot(starwars, aes(y = hair_color, fill = hair_color,)) +
+  geom_bar() +
+  labs(title = "Hair color of Star Wars characters", y = "Hair color", fill = " ", x = " ")
 ```
+
+![](starwars_files/figure-gfm/barplot-1.png)<!-- -->
 
 ### Pick a single numerical variable and make a histogram of it.
 
 (This time no starter code is provided, you’re on your own!)
 
+``` r
+ggplot(starwars, aes (x = height)) +
+  geom_histogram(binwidth = 20)
+```
+
+    ## Warning: Removed 6 rows containing non-finite values (stat_bin).
+
+![](starwars_files/figure-gfm/histogram-1.png)<!-- -->
+
 ### Pick a numerical variable and a categorical variable and make a visualisation (you pick the type!) to visualise the relationship between the two variables. Along with your code and output, provide an interpretation of the visualisation.
+
+``` r
+ggplot(starwars, aes(x = height, fill = gender)) +
+  geom_histogram(binwidth = 25)
+```
+
+    ## Warning: Removed 6 rows containing non-finite values (stat_bin).
+
+![](starwars_files/figure-gfm/num-cat-1.png)<!-- -->
 
 ### Pick two categorical variables and make a visualisation to visualise the relationship between the two variables. Along with your code and output, provide an interpretation of the visualisation.
 
+``` r
+ggplot(starwars, aes(y = hair_color, fill = gender)) +
+  geom_bar()
+```
+
+![](starwars_files/figure-gfm/cat-cat-1.png)<!-- -->
+
 ### Pick two numerical variables and two categorical variables and make a visualisation that incorportes all of them and provide an interpretation with your answer.
+
+``` r
+ggplot(starwars, aes(x = height, y = mass, color = hair_color, shape = gender)) +
+  geom_point()
+```
+
+    ## Warning: Removed 29 rows containing missing values (geom_point).
+
+![](starwars_files/figure-gfm/multi-1.png)<!-- -->
