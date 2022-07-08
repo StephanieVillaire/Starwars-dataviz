@@ -69,6 +69,6 @@ ggplot(starwars, aes(y = hair_color, fill = gender)) +
 ### Pick two numerical variables and two categorical variables and make a visualisation that incorportes all of them and provide an interpretation with your answer.
 
 ```{r multi}
-ggplot(starwars, aes(x = height, y = mass, color = hair_color, shape = gender)) +
+ggplot(starwars %>% filter (mass < 800), aes(x = height, y = mass, color = hair_color, shape = gender)) +
   geom_point()
 ```
